@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <property name="LOG_REPO" value="/var/log" />
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_REPO}/GridEye_sim.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{100} -> %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="trace">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

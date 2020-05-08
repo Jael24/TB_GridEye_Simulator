@@ -1,0 +1,49 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    datasource:
+      url: jdbc:h2:grideye:log_generator
+
+server:
+  port: 4040
+  http:
+    port: 4050
+  ssl:
+    key-alias: dummy_cert
+    key-store: classpath:dummy_cert.p12
+    key-store-type: PKCS12
+    key-store-password: dummy_password
+  http2:
+    enabled: true
+
+thread:
+  pool: 10
+
+logging:
+  level:
+    ch.grideye.*: TRACE
+    org.springframework.boot.web.embedded.tomcat: INFO
+    root: WARN
+
+swagger:
+  documentation:
+    base-package: ch.grideye.log.generator.controllers
+    info:
+      title: Log Generator API
+      description: This API tends to show how to interact with the Log Generator service.
+      version: 1.0.0-SNAPSHOT
+      tos: Terms of Service
+      contact:
+        name: DEPsys S.A.
+        url: www.depsys.ch
+        email: info@depsys.ch
+      licence:
+        name: DEPsys S.A.
+        url: www.depsys.ch
